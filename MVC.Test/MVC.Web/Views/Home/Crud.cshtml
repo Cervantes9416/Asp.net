@@ -1,0 +1,116 @@
+﻿@model MVC.Entidades.T_Alumno
+
+    
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="~/">Alumnos</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@(Model.idAlumno > 0 ? Model.Nombre + " " + Model.Apellido : "Registro" )</li>
+    </ol>
+</nav>
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="informacion-tab" data-toggle="tab" href="#informacion" role="tab" aria-controls="informacion" aria-selected="true">Informacion</a>
+    </li>
+    @if (Model.idAlumno > 0)
+    {
+        <li class="nav-item">
+            <a class="nav-link" id="cursos-tab" data-toggle="tab" href="#cursos" role="tab" aria-controls="cursos" aria-selected="false">Cursos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="adjuntos-tab" data-toggle="tab" href="#adjuntos" role="tab" aria-controls="adjuntos" aria-selected="false">Adjuntos</a>
+        </li>
+    }
+</ul>
+
+   
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="informacion" role="tabpanel" aria-labelledby="informacion-tab">
+
+        @using (Html.BeginForm("Guardar", "Home", FormMethod.Post, new { id = "frm-alumno", @class = "mt-2" }))
+        {
+            @Html.HiddenFor(x => x.idAlumno)
+            <div class="card mt-2">
+                <div class="card-header bg-info text-white">
+                    Datos Personal
+                </div>
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="form-group col">
+                            @Html.LabelFor(x => x.Nombre)
+                            @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Nombre, null, new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group col">
+                            @Html.LabelFor(x => x.Apellido)
+                            @Html.TextBoxFor(x => x.Apellido, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Apellido, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Sexo)
+                        <select name="Sexo" class="form-control">
+                            <option @(Model.Sexo == "M" ? "selected" : "") value="M">Hombre</option>
+                            <option @(Model.Sexo == "W" ? "selected" : "") value="W">Mujer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.FechaDeNacimiento, "Fecha De Nacimiento")
+                        @Html.TextBoxFor(x => x.FechaDeNacimiento, new { @class = "form-control" })
+                    </div>
+
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary btn-block" onclick="return confirm('ESTA SEGURO?')">Guardar</button>
+                </div>
+            </div>
+        }
+
+
+    </div>
+    <div class="tab-pane fade mt-3"  id="cursos" role="tabpanel" aria-labelledby="cursos-tab"></div>
+    <div class="tab-pane fade mt-3" id="adjuntos" role="tabpanel" aria-labelledby="cursos-tab"></div>
+</div>
+
+<script>
+    function cargarCursos(){
+        $("#cursos").load('@Url.Content("~/Home/Cursos/?idAlumno="+Model.idAlumno)')
+    }
+
+
+    $(document).ready(function () {
+        @if (Model.idAlumno>0)
+        {
+            <text>
+            cargarCursos();
+            </text>
+        }
+
+        $("#frm-alumno").submit(function(){
+            var form = $(this);
+
+            $.ajax({
+                datatype: "JSON",
+                type: "POST",
+                url: form.attr('action'),
+                data:form.serialize(),
+                success: function (r) {
+                    if (r.response) {
+                        window.location.href = r.href;
+                    } else {
+                        alert(r.message);
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus + ' ' + errorThrown);
+                }
+
+            });
+
+            return false;
+        });//submit
+    });//document.ready
+</script>
+

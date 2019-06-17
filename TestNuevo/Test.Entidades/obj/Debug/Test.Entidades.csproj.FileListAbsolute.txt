@@ -1,0 +1,9 @@
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\TestNuevo\Test.Entidades\bin\Debug\Test.Entidades.dll
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\TestNuevo\Test.Entidades\bin\Debug\Test.Entidades.pdb
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\TestNuevo\Test.Entidades\bin\Debug\EntityFramework.dll
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\TestNuevo\Test.Entidades\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\TestNuevo\Test.Entidades\bin\Debug\EntityFramework.xml
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\TestNuevo\Test.Entidades\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\TestNuevo\Test.Entidades\obj\Debug\Test.Entidades.dll
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\TestNuevo\Test.Entidades\obj\Debug\Test.Entidades.pdb
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\TestNuevo\Test.Entidades\obj\Debug\Test.Entidades.csprojResolveAssemblyReference.cache

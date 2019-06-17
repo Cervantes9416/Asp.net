@@ -1,0 +1,58 @@
+﻿@model IEnumerable<MVC.Entidades.T_Alumno>
+
+<h2 class="page-header">
+    Index
+</h2>
+
+@{ 
+    //List<MVC.Entidades.Alumno> alumnos = ViewBag.Alumnos;
+}
+
+<p>
+    Hola, me pasaron este valor <b>@ViewBag.Algo</b>
+</p>
+
+
+<form class="col-lg-10 pl-0">
+    <div class="row">
+        <div class="form-group col">
+            <label for="name">Nombre</label>
+            <input name="name" type="text" class="form-control" />
+        </div>
+        <div class="form-group col">
+            <label for="name">Apellido</label>
+            <input name="name" type="text" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="text" name="email" class="form-control" placeholder="Email@example.com" />
+    </div>
+
+</form>    
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Sexo</th>
+            <th>Fecha de Nacimiento</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var alumno in Model)
+            {
+            <tr class="">
+                <td>@alumno.Nombre</td>
+                <td>@(alumno.Sexo == "M" ? "Hombre" : "Mujer" )</td>
+                <td>@alumno.FechaDeNacimiento</td>
+                <td>
+                    <a class="btn btn-xs btn-info text-white" href="~/Home/Ver/@alumno.idAlumno">Visualizar</a>
+                    <a class="btn btn-xs btn-success text-white" href="~/Home/Crud/@alumno.idAlumno">Editar</a>
+                    <a class="btn btn-xs btn-danger text-white" onclick="return confirm('Desea eliminar el registro?')" href="~/Home/Eliminar/@alumno.idAlumno">Borrar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+   

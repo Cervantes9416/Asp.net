@@ -1,0 +1,80 @@
+﻿@model MVC.Entidades.T_Alumno_Curso
+@{ 
+    List<MVC.Entidades.T_Curso> cursos = ViewBag.cursos;
+    List<MVC.Entidades.T_Alumno_Curso> cursosElegidos = ViewBag.cursosElegidos;
+}
+
+@using (Html.BeginForm("GuardarCurso", "Home", FormMethod.Post,new {id = "frm-cursos mt-3"}))
+{
+    @Html.HiddenFor(x=>x.idAlumno)
+    <div class="form-group">
+        <select class="form-control" name="idCurso">
+            @foreach (var curso in cursos)
+                {
+                <option value="@curso.id">@curso.Nombre</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Nota)
+        @Html.TextBoxFor(x => x.Nota, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x=>x.Nota,null, new { @class = "text-danger"})
+    </div>
+
+    <button class="btn btn-success" onclick="return confirm('ESTA SEGURO?')">Guardar</button>
+
+}
+
+<div class="list-group mt-3">
+    @foreach (var curso in cursosElegidos)
+    {
+        <li class="list-group-item">
+            @curso.T_Curso.Nombre
+        </li>
+    }
+</div>
+
+
+
+<script>
+
+    function alerta() {
+        alert("STRING FUNCTION");
+    }
+
+    
+
+    $(document).readty(function () {
+        $.validator.unobtrusive.parse("#frm-curso");
+
+        $("#frm-cursos").submit(function () {
+            var form = $(this);
+
+            $.ajax({
+                datatype: "JSON",
+                type: "POST",
+                url: form.attr('action'),
+                data: form.serialize(),
+                success: function (r) {
+                    if (r.response) {
+                        //window.location.href = r.href
+                        //r.function
+                        setTimeout(r.function, 0);
+                    } else {
+                        alert(r.message);
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus + ' ' + errorThrown);
+                }
+
+            });
+
+            return false;
+        });//submit
+    });
+
+   
+</script>
+<!--Cursos Elegidos-->

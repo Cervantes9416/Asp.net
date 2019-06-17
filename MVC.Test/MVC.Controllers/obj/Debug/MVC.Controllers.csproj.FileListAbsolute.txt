@@ -1,0 +1,12 @@
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\MVC.Test\MVC.Controllers\bin\Debug\MVC.Controllers.dll.config
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\MVC.Test\MVC.Controllers\bin\Debug\MVC.Controllers.dll
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\MVC.Test\MVC.Controllers\bin\Debug\MVC.Controllers.pdb
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\MVC.Test\MVC.Controllers\bin\Debug\EntityFramework.dll
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\MVC.Test\MVC.Controllers\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\MVC.Test\MVC.Controllers\bin\Debug\MVC.Entidades.dll
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\MVC.Test\MVC.Controllers\bin\Debug\MVC.Entidades.pdb
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\MVC.Test\MVC.Controllers\bin\Debug\EntityFramework.xml
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\MVC.Test\MVC.Controllers\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\MVC.Test\MVC.Controllers\obj\Debug\MVC.Controllers.csprojResolveAssemblyReference.cache
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\MVC.Test\MVC.Controllers\obj\Debug\MVC.Controllers.dll
+C:\Users\Cesar\Documents\Proyectos\ASP.NET\MVC.Test\MVC.Controllers\obj\Debug\MVC.Controllers.pdb

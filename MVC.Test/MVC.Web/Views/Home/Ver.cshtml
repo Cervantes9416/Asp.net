@@ -1,0 +1,46 @@
+﻿@model MVC.Entidades.T_Alumno
+
+@{
+    ViewBag.Title = "Ver";
+}
+
+<h2 class="text-center">Alumno</h2>
+
+<div class="card">
+    <div class="card-header text-white bg-primary">
+        <h3>@Model.Nombre @Model.Apellido</h3>
+    </div>
+    <div class="card-body">
+        <b>Informacion personal</b>
+        <hr />
+        <p>
+            <b>Fecha de Nacimiento: </b>@Model.FechaDeNacimiento
+        </p>
+        <p>
+            <b>Sexo: </b>@(Model.Sexo == "M" ? "Hombre" : "Mujer")
+        </p>
+    </div>
+    
+</div>
+
+@if(Model.T_Alumno_Curso.Count > 0)
+{
+    <div class="card mt-2">
+        <div class="card-header text-white bg-dark">
+            <h3>Cusos</h3>
+        </div>
+        <div class="card-body">
+            @foreach (var curso in Model.T_Alumno_Curso)
+            {
+                <b>Curso: </b>@curso.T_Curso.Nombre
+                <b>Nota: </b>@curso.Nota
+                <hr />
+            }
+        </div>
+
+    </div>
+}else{ 
+    <p class="mt-5">El alumno no esta inscrito en ningun Curso</p>
+}
+
+
