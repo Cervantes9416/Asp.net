@@ -1,0 +1,24 @@
+﻿@model List<Test.Entidades.T_Alumno>
+
+<ul class="list-group">
+    @foreach (var alumno in Model)
+    {
+        <a onclick="cargarModal(@alumno.idAlumno)" class="list-group-item list-group-item-action" data-toggle="modal" data-target=".bd-example-modal-lg">@(alumno.Nombre + " " + alumno.Apellido) </a>
+    }
+</ul>
+
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="modalPro">
+            
+        </div>
+    </div>
+</div>
+
+<script>
+    function cargarModal(id){
+        $('#modalPro').load('@Url.Content("~/Home/Get/")'+id);
+    }
+</script>
